@@ -1,0 +1,11 @@
+{
+  "name": "async-event-emitter",
+  "version": "0.0.1",
+  "description": "Not a complex event emitter that can handle async await.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sosaki12lox",
+  "license": "ISC"
+}
