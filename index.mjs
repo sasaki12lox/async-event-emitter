@@ -9,10 +9,10 @@ export class EventEmitter {
     /**
      * 
      * @param {String} event Event name
-     * @param {Function} callback Callback function
+     * @param {(...data: any[]) => void} callback Callback function
      * @returns {Function} Remove listener
      */
-    addEventListener(event, callback) {
+    on(event, callback) {
         if (!(event && callback)) return () => {};
         if (this.#events[event]) this.#events[event].push(callback);
         else this.#events[event] = [callback];
@@ -52,7 +52,7 @@ export class AsyncEventEmitter extends EventEmitter {
      */
     awaitEvent(event) {
         return new Promise((ok) => {
-            let remove = this.addEventListener(event, (data) => {
+            let remove = this.on(event, (data) => {
                 ok(data);
                 remove();
             });
